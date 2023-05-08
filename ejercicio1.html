@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora de cuadrante</title>
+</head>
+<body>
+	<h1>Calculadora de cuadrante</h1>
+
+	<form>
+		<label for="coordenadaX">Coordenada X:</label>
+		<input type="number" id="coordenadaX" name="coordenadaX"><br><br>
+
+		<label for="coordenadaY">Coordenada Y:</label>
+		<input type="number" id="coordenadaY" name="coordenadaY"><br><br>
+
+		<button type="button" onclick="calcularCuadrante()">Calcular cuadrante</button>
+	</form>
+
+	<p id="resultado"></p>
+
+	<script>
+		function calcularCuadrante() {
+			let x = document.getElementById("coordenadaX").value;
+			let y = document.getElementById("coordenadaY").value;
+
+			if (x > 0 && y > 0) {
+				document.getElementById("resultado").innerHTML = "El punto está en el primer cuadrante";
+			} else if (x < 0 && y > 0) {
+				document.getElementById("resultado").innerHTML = "El punto está en el segundo cuadrante";
+			} else if (x < 0 && y < 0) {
+				document.getElementById("resultado").innerHTML = "El punto está en el tercer cuadrante";
+			} else if (x > 0 && y < 0) {
+				document.getElementById("resultado").innerHTML = "El punto está en el cuarto cuadrante";
+			} else if (x == 0 && y != 0) {
+				document.getElementById("resultado").innerHTML = "El punto está sobre el eje Y";
+			} else if (x != 0 && y == 0) {
+				document.getElementById("resultado").innerHTML = "El punto está sobre el eje X";
+			} else {
+				document.getElementById("resultado").innerHTML = "El punto está en el origen";
+			}
+		}
+	</script>
+</body>
+</html>
